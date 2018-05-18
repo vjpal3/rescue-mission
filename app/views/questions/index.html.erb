@@ -1,0 +1,13 @@
+<h2>Questions Listing</h2>
+<%= link_to 'Post a Question', new_question_path %>
+
+<table>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= link_to "#{question.title}", question_path(question) %></td>
+
+
+    </tr>
+  <% end %>
+
+</table>
