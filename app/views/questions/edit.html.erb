@@ -1,0 +1,13 @@
+<h2>Edit Question</h2>
+<%= render "form" %>
+<p>
+  <%= link_to 'Delete this Question', question_path(@question),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+</p>    
+<p>
+  <%= link_to "Back to Question's page", question_path(@question) %>
+<p>
+<p>
+  <%= link_to "All Questions Listing", questions_path %>
+</p>

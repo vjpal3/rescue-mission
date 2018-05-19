@@ -1,5 +1,8 @@
 <h2>Questions Listing</h2>
-<%= link_to 'Post a Question', new_question_path %>
+<p>
+  <%= link_to 'Post a New Question', new_question_path %>
+</p>
+<p></p>
 
 <table>
   <% @questions.each do |question| %>

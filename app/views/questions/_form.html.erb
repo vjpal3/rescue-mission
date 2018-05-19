@@ -24,6 +24,6 @@
   </p>
 
   <p>
-    <%= f.submit "Post Question" %>
+    <%= f.submit @question.persisted? ? "Edit Question" : "Post Question" %>
   </p>
 <% end %>

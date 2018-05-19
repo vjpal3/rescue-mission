@@ -12,6 +12,10 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def create
     @question = Question.new(questions_params)
     if @question.save
@@ -21,6 +25,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(questions_params)
+      redirect_to @question, notice: 'Question was successfully updated.'
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_path
+  end
 
   private
     def questions_params

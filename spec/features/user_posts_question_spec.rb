@@ -12,7 +12,7 @@ feature 'user posts a question' do
     # - I must be presented with errors if I fill out the form incorrectly
 
     visit "/questions"
-    find_link("Post a Question").click
+    find_link("Post a New Question").click
     expect(page).to have_content("Post a Question")
     fill_in "Title", with: "Some simple Ruby questions - iterators, blocks, and symbols"
     fill_in "Description",
@@ -25,7 +25,7 @@ feature 'user posts a question' do
 
   scenario 'user fails to post a question' do
     visit "/questions"
-    find_link("Post a Question").click
+    find_link("Post a New Question").click
     click_button "Post Question"
 
     expect(page).to have_content("Title is too short (minimum is 20 characters)")

@@ -7,6 +7,13 @@
   <strong>Description:</strong> <%= @question.description %>
 </p>
 
+<p>
+  <%= link_to "Edit this Question", edit_question_path(@question) %> |
+  <%= link_to 'Delete this Question', question_path(@question),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+</p>
+
 <%= render @question.answers.order(created_at: :asc) %>
 
 <p>Post your Answer:</p>
