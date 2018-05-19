@@ -7,6 +7,11 @@
   <strong>Description:</strong> <%= @question.description %>
 </p>
 
+<%= render @question.answers.order(created_at: :asc) %>
+
+<p>Post your Answer:</p>
+<%= render '/answers/form' %>
+
 <p>
   <%= link_to "Back to Questions Listing", questions_path %>
 </p>

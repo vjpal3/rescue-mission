@@ -1,0 +1,29 @@
+<%= form_with model: @question, local: true do |f| %>
+  <% if @question.errors.any? %>
+    <div class="error_explanation">
+      <h4>
+        <%= pluralize(@question.errors.count, "error") %> prohibited
+        this question from being posted:
+      </h4>
+      <ul>
+        <% @question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Post Question" %>
+  </p>
+<% end %>

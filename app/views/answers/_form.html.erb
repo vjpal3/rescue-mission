@@ -1,0 +1,22 @@
+<%= form_for [ @question, @answer ] do |f| %>
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h4>
+      <%= pluralize(@answer.errors.count, "error") %> prohibited
+      this answer from being posted:
+    </h4>
+    <ul>
+      <% @answer.errors.full_messages.each do |msg| %>
+        <li><%= msg.gsub!('Description', 'Answer') %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <p>
+
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit "Submit Answer" %>
+  </p>
+<% end %>
